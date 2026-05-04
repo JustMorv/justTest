@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Курсы программирования </title>
+    <title>Курсы программирования | IT-навигатор</title>
     <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -112,10 +112,11 @@
         .tech-badge {
             background: #eef2ff;
             color: #1e40af;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 40px;
+            display: inline-block;
         }
         footer a {
             text-decoration: none;
@@ -128,16 +129,49 @@
             border: 1px solid rgba(255,255,255,0.15);
         }
         .icon-bg {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             background: #eef2ff;
             border-radius: 28px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: #2563eb;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
+        
+        /* Адаптивные заголовки модулей */
+        .module-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .module-header .icon-bg {
+            flex-shrink: 0;
+        }
+        .module-header h3 {
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .module-header .badge {
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 576px) {
+            .module-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .module-header .icon-bg {
+                margin-bottom: 0.25rem;
+            }
+            .module-header h3 {
+                font-size: 1.35rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-section {
                 border-radius: 0 0 2rem 2rem;
@@ -146,7 +180,19 @@
                 border-radius: 1.25rem;
             }
             .display-4 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            h4 {
+                font-size: 1.25rem;
+            }
+            .list-check li {
+                font-size: 0.85rem;
+            }
+            .code-preview pre {
+                font-size: 0.6rem;
             }
         }
         .list-check {
@@ -154,9 +200,10 @@
             padding-left: 0;
         }
         .list-check li {
-            padding-left: 1.8rem;
+            padding-left: 1.6rem;
             position: relative;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
         }
         .list-check li:before {
             content: "✓";
@@ -165,7 +212,6 @@
             position: absolute;
             left: 0;
         }
-        /* Стили для кода */
         pre {
             border-radius: 1rem;
             padding: 0.75rem;
@@ -182,12 +228,11 @@
             border-radius: 1rem;
             padding: 0.75rem;
             overflow-x: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
-        /* Стили для скриншотов — фон на всю ширину */
         .screenshot-full {
             width: 100%;
-            min-height: 260px;
+            min-height: 220px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -204,106 +249,86 @@
             z-index: 2;
             background: rgba(0,0,0,0.7);
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 2rem;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             backdrop-filter: blur(4px);
-        }
-        .screenshot-full.no-image {
-            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: #4b5563;
-        }
-        .screenshot-full.no-image i {
-            font-size: 3rem;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
         }
         .result-badge {
             background: #f1f5f9;
             border-radius: 2rem;
-            padding: 0.4rem 1rem;
-            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
             display: inline-block;
         }
-        .code-section {
-            margin-bottom: 1rem;
-        }
-        .screenshot-section {
-            margin-top: 0.5rem;
-        }
-        /* Темная карточка */
-        .bg-dark .screenshot-full {
-            background-color: rgba(255,255,255,0.1);
-        }
-        .bg-dark .screenshot-full .screenshot-label {
-            background: rgba(0,0,0,0.8);
-        }
-        .android-row {
+        .android-row, .unity-row {
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
         }
         .android-row .code-col {
-            flex: 0 0 60%;
-            max-width: 60%;
+            flex: 1 1 60%;
+            min-width: 250px;
         }
         .android-row .screenshot-col {
-            flex: 0 0 35%;
-            max-width: 35%;
-        }
-        .unity-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            flex: 1 1 35%;
+            min-width: 200px;
         }
         .unity-row .code-col {
-            flex: 0 0 38%;
-            max-width: 38%;
+            flex: 1 1 40%;
+            min-width: 250px;
         }
         .unity-row .screenshot-col {
-            flex: 0 0 58%;
-            max-width: 58%;
+            flex: 1 1 55%;
+            min-width: 250px;
         }
         @media (max-width: 768px) {
             .android-row .code-col,
             .android-row .screenshot-col,
             .unity-row .code-col,
             .unity-row .screenshot-col {
-                flex: 0 0 100%;
-                max-width: 100%;
+                flex: 1 1 100%;
             }
         }
-        /* Высота скриншота для Android */
         .android-screenshot {
-            min-height: 380px !important;
+            min-height: 320px !important;
             background-size: contain !important;
             background-position: center !important;
+        }
+        
+        /* Адаптив для Python продвинутый */
+        @media (max-width: 992px) {
+            .python-advanced-card .row {
+                flex-direction: column;
+            }
+            .python-advanced-card .col-lg-6 {
+                width: 100%;
+            }
+            .python-advanced-card .code-preview {
+                margin-top: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
 <!-- НАВИГАЦИЯ -->
-<nav class="navbar navbar-expand-lg py-3 fixed-top" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 1px 2px rgba(0,0,0,0.05); z-index: 1030;">
+<nav class="navbar navbar-expand-lg py-2 fixed-top" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 1px 2px rgba(0,0,0,0.05); z-index: 1030;">
     <div class="container">
         <a class="navbar-brand fw-bold fs-4" href="#" style="background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent;">
-            <i class="bi bi-code-square me-2"></i>
+            <i class="bi bi-code-square me-2"></i>IT-навигатор
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 gap-lg-2">
                 <li class="nav-item"><a class="nav-link fw-semibold" href="#web">🌐 Web</a></li>
                 <li class="nav-item"><a class="nav-link fw-semibold" href="#backend">⚙️ Backend</a></li>
                 <li class="nav-item"><a class="nav-link fw-semibold" href="#fullstack">🔁 Full-stack</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="#database">🗄️ Базы данных</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#database">🗄️ SQL</a></li>
                 <li class="nav-item"><a class="nav-link fw-semibold" href="#python">🐍 Python</a></li>
                 <li class="nav-item"><a class="nav-link fw-semibold" href="#android">📱 Android</a></li>
                 <li class="nav-item"><a class="nav-link fw-semibold" href="#unity">🎮 Unity</a></li>
@@ -311,24 +336,20 @@
         </div>
     </div>
 </nav>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<br><br><br><br>
 
 <!-- ОСНОВНОЙ КОНТЕНТ -->
-<div class="container my-5" id="courses">
-    <div class="text-center mb-5">
+<div class="container my-4 my-md-5" id="courses">
+    <div class="text-center mb-4 mb-md-5">
         <h2 class="section-title fs-1 fw-bold">Модульные программы</h2>
-        <p class="text-muted mt-4 fs-5 col-lg-8 mx-auto">Каждый модуль — законченный курс с реальными проектами. </p>
+        <p class="text-muted mt-3 fs-5 col-lg-8 mx-auto">Каждый модуль — законченный курс с реальными проектами.</p>
     </div>
 
     <!-- 1. WEB-РАЗРАБОТКА -->
     <div id="web" class="row g-4 mb-5 pt-3">
         <div class="col-12">
-            <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="module-header">
                 <div class="icon-bg" style="background:#e0e7ff;"><i class="bi bi-browser-chrome fs-4"></i></div>
                 <h3 class="fw-bold m-0">Веб-разработка</h3>
             </div>
@@ -345,14 +366,17 @@
                     <li>JavaScript: DOM, события</li>
                 </ul>
                 <div class="mt-3 pt-2 border-top">
-                    <div class="code-section">
-                        <div class="code-preview">
-                            <pre><code class="language-javascript">
-const products = [
+                    <div class="fw-semibold mb-2">📌 Что изучит:</div>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="tech-badge">Адаптивная вёрстка</span>
+                        <span class="tech-badge">css</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                    <div class="code-preview">
+                        <pre><code class="language-javascript">const products = [
   { title: "Пепперони", price: "3500 тг" },
   { title: "Маргарита", price: "3000 тг" }
 ];
-
 const cardRender = (array, selector) => {
   const container = document.querySelector(selector);
   array.forEach(prod => {
@@ -360,14 +384,10 @@ const cardRender = (array, selector) => {
     card.innerHTML = `<h3>${prod.title}</h3><p>${prod.price}</p>`;
     container.appendChild(card);
   });
-};
-</code></pre>
-                        </div>
+};</code></pre>
                     </div>
-                    <div class="screenshot-section">
-                        <div class="screenshot-full" style="background-image: url('img/1.png'); min-height: 260px;">
-                            <span class="screenshot-label">🎮 Игра "Угадай число"</span>
-                        </div>
+                    <div class="screenshot-full" style="background-image: url('img/1.png'); min-height: 200px;">
+                        <span class="screenshot-label">🍕 интернет-магазин </span>
                     </div>
                 </div>
             </div>
@@ -383,10 +403,14 @@ const cardRender = (array, selector) => {
                     <li>Работа с API</li>
                 </ul>
                 <div class="mt-3 pt-2 border-top">
-                    <div class="code-section">
-                        <div class="code-preview">
-                            <pre><code class="language-jsx">
-import React, { useState } from 'react';
+                    <div class="fw-semibold mb-2">🎯 Результат:</div>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="tech-badge">React приложение</span>
+                        <span class="tech-badge">Vue SPA</span>
+                        <span class="tech-badge">Vite сборка</span>
+                    </div>
+                    <div class="code-preview">
+                        <pre><code class="language-jsx">import React, { useState } from 'react';
 
 function TodoApp() {
     const [todos, setTodos] = useState([]);
@@ -394,130 +418,215 @@ function TodoApp() {
         setTodos([...todos, { id: Date.now(), text }]);
     };
     return &lt;div&gt;{todos.map(t => &lt;div key={t.id}&gt;{t.text}&lt;/div&gt;)}&lt;/div&gt;;
-}
-</code></pre>
-                        </div>
+}</code></pre>
                     </div>
-                    <div class="screenshot-section">
-                        <div class="screenshot-full" style="background-image: url('img/2.png'); min-height: 260px;">
-                            <span class="screenshot-label">✔️ Менеджер задач на React</span>
-                        </div>
+                    <div class="screenshot-full" style="background-image: url('img/2.png');">
+                        <span class="screenshot-label">✔️ Менеджер задач на React</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 2. BACKEND -->
-    <div id="backend" class="row g-4 mb-5 pt-4">
-        <div class="col-12">
-            <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="icon-bg" style="background:#e6f7ec;"><i class="bi bi-server fs-4"></i></div>
-                <h3 class="fw-bold m-0">Backend-разработка</h3>
-                <span class="badge bg-success bg-opacity-10 text-success ms-2 px-3 py-2">серверная логика</span>
-            </div>
-            <div class="line-module" style="border-left-color: #10b981;"></div>
+   <!-- 2. BACKEND -->
+<div id="backend" class="row g-4 mb-5 pt-4">
+    <div class="col-12">
+        <div class="module-header">
+            <div class="icon-bg" style="background:#e6f7ec;"><i class="bi bi-server fs-4"></i></div>
+            <h3 class="fw-bold m-0">Backend-разработка</h3>
+            <span class="badge bg-success bg-opacity-10 text-success ms-2 px-3 py-2">серверная логика</span>
         </div>
-        <div class="col-md-6">
-            <div class="card module-card p-4 h-100">
-                <h4 class="fw-bold"><i class="bi bi-filetype-php me-2"></i> Yii2 / PHP + Laravel</h4>
-                <p>MVC, работа с БД, авторизация</p>
-                <div class="code-section mt-2">
-                    <div class="code-preview">
-                        <pre><code class="language-php">
-class PostController extends Controller {
+        <div class="line-module" style="border-left-color: #10b981;"></div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fff, #f0fdf4); border-left: 4px solid #10b981;">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="icon-bg" style="background: #10b98120; color: #10b981;">
+                    <i class="bi bi-filetype-php fs-4"></i>
+                </div>
+                <h4 class="fw-bold m-0">Yii2 / PHP + Laravel</h4>
+            </div>
+            <p class="mb-3">MVC, работа с БД, авторизация</p>
+            
+            <div class="mb-3">
+                <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                <ul class="list-check small">
+                    <li>PHP: основы + ООП, MySQL</li>
+                    <li>REST-маршруты, миграции</li>
+                    <li>Yii2: Gii генератор, пагинация</li>
+                </ul>
+            </div>
+            
+            <div class="mt-2">
+                <h6 class="fw-semibold"><i class="bi bi-trophy-fill text-warning me-2"></i>Результат:</h6>
+                <div class="d-flex flex-wrap gap-2 mt-1">
+                    <span class="result-badge" style="background: #10b981; color: white;">🛒 Интернет-магазин</span>
+                    <span class="result-badge" style="background: #3b82f6; color: white;">📡 REST API</span>
+                </div>
+            </div>
+            
+            <div class="code-preview mt-3">
+                <pre><code class="language-php">class PostController extends Controller {
     public function actionIndex() {
         $posts = Post::find()->where(['status' => 1])->paginate(10);
         return $this->render('index', ['posts' => $posts]);
     }
-}
-</code></pre>
-                    </div>
-                </div>
-                <div class="screenshot-section">
-                    <div class="screenshot-full" style="background-image: url('img/4.png'); min-height: 220px;">
-                        <span class="screenshot-label">⚙️ Админ-панель Yii2</span>
-                    </div>
-                </div>
+}</code></pre>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card module-card p-4 h-100">
-                <h4 class="fw-bold"><i class="bi bi-database-gear me-2"></i> Laravel (углубленный)</h4>
-                <p>Eloquent ORM, API, Sanctum</p>
-                <div class="code-section mt-2">
-                    <div class="code-preview">
-                        <pre><code class="language-php">
-Route::apiResource('posts', PostController::class);
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('user', [UserController::class, 'profile']);
-});
-
-$posts = Post::with('user')->latest()->paginate(15);
-</code></pre>
-                    </div>
-                </div>
-                <div class="screenshot-section">
-                    <div class="screenshot-full" style="background-image: url('img/5.png'); min-height: 220px;">
-                        <span class="screenshot-label">📡 API документация</span>
-                    </div>
-                </div>
+            <div class="screenshot-full mt-3" style="background-image: url('img/4.png'); min-height: 200px;">
+                <span class="screenshot-label">⚙️ Админ-панель Yii2</span>
             </div>
         </div>
     </div>
-
-    <!-- 3. FULL-STACK -->
-    <div id="fullstack" class="row g-4 mb-5 pt-3">
-        <div class="col-12">
+    
+    <div class="col-md-6">
+        <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fff, #eef2ff); border-left: 4px solid #3b82f6;">
             <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="icon-bg" style="background:#fef3c7;"><i class="bi bi-diagram-3 fs-4"></i></div>
-                <h3 class="fw-bold m-0">Full-stack разработка</h3>
-                <span class="badge bg-warning bg-opacity-25 text-dark ms-2 px-3 py-2">клиент + сервер</span>
+                <div class="icon-bg" style="background: #3b82f620; color: #3b82f6;">
+                    <i class="bi bi-database-gear fs-4"></i>
+                </div>
+                <h4 class="fw-bold m-0">Laravel (углубленный)</h4>
             </div>
-            <div class="line-module" style="border-left-color: #f59e0b;"></div>
+            <p class="mb-3">Eloquent ORM, API, Sanctum</p>
+            
+            <div class="mb-3">
+                <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                <ul class="list-check small">
+                    <li>Eloquent модели, Blade шаблоны</li>
+                    <li>API ресурсы, Sanctum авторизация</li>
+                    <li>Миграции, сидеры, фабрики</li>
+                </ul>
+            </div>
+            
+            <div class="mt-2">
+                <h6 class="fw-semibold"><i class="bi bi-trophy-fill text-warning me-2"></i>Результат:</h6>
+                <div class="d-flex flex-wrap gap-2 mt-1">
+                    <span class="result-badge" style="background: #3b82f6; color: white;">📝 Блог с API</span>
+                    <span class="result-badge" style="background: #8b5cf6; color: white;">🔒 JWT авторизация</span>
+                </div>
+            </div>
+            
+            <div class="code-preview mt-3">
+                <pre><code class="language-php">Route::apiResource('posts', PostController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', [UserController::class, 'profile']);
+});
+$posts = Post::with('user')->latest()->paginate(15);</code></pre>
+            </div>
+            <div class="screenshot-full mt-3" style="background-image: url('img/5.png');">
+                <span class="screenshot-label">📡 API документация</span>
+            </div>
         </div>
-        <div class="col-lg-12">
-            <div class="card module-card p-4">
-                <h4 class="fw-bold"><i class="bi bi-cloud-arrow-up-fill me-2"></i> REST API & Клиент-сервер</h4>
-                <p>Объединяем React/Vue и Laravel. Полноценное приложение с JWT.</p>
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <div class="code-preview">
-                            <pre><code class="language-javascript">
-// React + Axios запрос
+    </div>
+</div>
+
+<!-- 3. FULL-STACK -->
+<div id="fullstack" class="row g-4 mb-5 pt-3">
+    <div class="col-12">
+        <div class="module-header">
+            <div class="icon-bg" style="background:#fef3c7;"><i class="bi bi-diagram-3 fs-4"></i></div>
+            <h3 class="fw-bold m-0">Full-stack разработка</h3>
+            <span class="badge bg-warning bg-opacity-25 text-dark ms-2 px-3 py-2">клиент + сервер</span>
+        </div>
+        <div class="line-module" style="border-left-color: #f59e0b;"></div>
+    </div>
+    
+    <div class="col-lg-12">
+        <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #fff, #fefce8); border-left: 4px solid #eab308;">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="icon-bg" style="background: #eab30820; color: #ca8a04;">
+                            <i class="bi bi-cloud-arrow-up-fill fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold m-0">REST API & Клиент-сервер</h4>
+                    </div>
+                    <p class="mb-3">Объединяем React/Vue и Laravel. Полноценное веб-приложение с JWT аутентификацией.</p>
+                    
+                    <div class="mb-3">
+                        <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                        <ul class="list-check small">
+                            <li>HTTP, CRUD операции, Axios</li>
+                            <li>Создание REST API на Laravel</li>
+                            <li>Подключение React/Vue к API</li>
+                            <li>JWT токены, защита маршрутов</li>
+                            <li>Развертывание на хостинге</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-2">
+                        <h6 class="fw-semibold"><i class="bi bi-trophy-fill text-warning me-2"></i>Результат:</h6>
+                        <div class="d-flex flex-wrap gap-2 mt-1">
+                            <span class="result-badge" style="background: #eab308; color: white;">🌐 Социальная сеть</span>
+                            <span class="result-badge" style="background: #10b981; color: white;">✅ Доска задач</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mt-3 mt-lg-0">
+                    <div class="code-preview" style="position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 10px; right: 10px; background: #eab308; padding: 2px 10px; border-radius: 20px; font-size: 10px; color: #422006; font-weight: 600;">⚡ vue + Laravel</div>
+                        <pre><code class="language-javascript">// React + Axios запрос с токеном
+import axios from 'axios';
+
+const api = axios.create({
+    baseURL: 'http://localhost:8000/api',
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+});
+
 const fetchPosts = async () => {
     const { data } = await api.get('/posts');
     setPosts(data);
 };
-</code></pre>
-                        </div>
+
+const createPost = async (post) => {
+    const { data } = await api.post('/posts', post);
+    setPosts([data, ...posts]);
+};</code></pre>
                     </div>
-                    <div class="col-md-6">
-                        <div class="screenshot-full" style="background-image: url('img/6.png'); min-height: 200px;">
-                            <span class="screenshot-label">Full-stack приложение</span>
-                        </div>
+                    <div class="screenshot-full mt-3" style="background-image: url('img/6.png'); min-height: 200px;">
+                        <span class="screenshot-label">Full-stack приложение</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 4. БАЗЫ ДАННЫХ И SQL -->
-    <div id="database" class="row g-4 mb-5 pt-3">
-        <div class="col-12">
-            <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="icon-bg" style="background:#dbeafe;"><i class="bi bi-database fs-4"></i></div>
-                <h3 class="fw-bold m-0">Базы данных & SQL</h3>
-                <span class="badge bg-primary bg-opacity-10 text-primary ms-2 px-3 py-2">хранение данных</span>
-            </div>
-            <div class="line-module" style="border-left-color: #3b82f6;"></div>
+<!-- 4. БАЗЫ ДАННЫХ И SQL -->
+<div id="database" class="row g-4 mb-5 pt-3">
+    <div class="col-12">
+        <div class="module-header">
+            <div class="icon-bg" style="background:#dbeafe;"><i class="bi bi-database fs-4"></i></div>
+            <h3 class="fw-bold m-0">Базы данных & SQL</h3>
+            <span class="badge bg-primary bg-opacity-10 text-primary ms-2 px-3 py-2">хранение данных</span>
         </div>
-        <div class="col-md-6">
-            <div class="card module-card p-4 h-100">
-                <h4 class="fw-bold"><i class="bi bi-filetype-sql me-2 text-warning"></i> SQL запросы</h4>
-                <div class="code-preview">
-                    <pre><code class="language-sql">
-CREATE TABLE users (
+        <div class="line-module" style="border-left-color: #3b82f6;"></div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fff, #f0fdf4); border-left: 4px solid #10b981;">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="icon-bg" style="background: #10b98120; color: #10b981;">
+                    <i class="bi bi-filetype-sql fs-4"></i>
+                </div>
+                <h4 class="fw-bold m-0">SQL запросы</h4>
+            </div>
+            <p class="mb-3">Научим работать с базами данных: SELECT, INSERT, UPDATE, DELETE, JOIN, GROUP BY.</p>
+            
+            <div class="mb-3">
+                <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                <ul class="list-check small">
+                    <li>Проектирование таблиц, ключи</li>
+                    <li>Сложные запросы и подзапросы</li>
+                    <li>Индексы и оптимизация</li>
+                    <li>Объединение таблиц (JOIN, UNION)</li>
+                </ul>
+            </div>
+            
+            <div class="code-preview mt-3">
+                <pre><code class="language-sql">CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(255) UNIQUE
@@ -527,118 +636,138 @@ SELECT u.name, COUNT(o.id) as orders_count
 FROM users u
 LEFT JOIN orders o ON u.id = o.user_id
 GROUP BY u.id
-ORDER BY orders_count DESC;
-</code></pre>
-                </div>
+ORDER BY orders_count DESC;</code></pre>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card module-card p-4 h-100">
-                <h4 class="fw-bold"><i class="bi bi-server me-2 text-info"></i> PostgreSQL & MySQL</h4>
-                <div class="code-preview">
-                    <pre><code class="language-sql">
-BEGIN;
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fff, #eef2ff); border-left: 4px solid #3b82f6;">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="icon-bg" style="background: #3b82f620; color: #3b82f6;">
+                    <i class="bi bi-server fs-4"></i>
+                </div>
+                <h4 class="fw-bold m-0">PostgreSQL & MySQL</h4>
+            </div>
+            <p class="mb-3">Работа с реальными базами данных, транзакции, backup, хранимые процедуры.</p>
+            
+            <div class="mb-3">
+                <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                <ul class="list-check small">
+                    <li>Транзакции ACID (BEGIN, COMMIT, ROLLBACK)</li>
+                    <li>Хранимые процедуры и триггеры</li>
+                    <li>Резервное копирование и восстановление</li>
+                    <li>Настройка прав доступа (GRANT, REVOKE)</li>
+                </ul>
+            </div>
+            
+            <div class="code-preview mt-3">
+                <pre><code class="language-sql">BEGIN;
     UPDATE accounts SET balance = balance - 100 WHERE id = 1;
     UPDATE accounts SET balance = balance + 100 WHERE id = 2;
 COMMIT;
-</code></pre>
-                </div>
-                <div class="screenshot-section mt-2">
-                    <div class="screenshot-full" style="background-image: url('img/9.png'); min-height: 200px;">
-                        <span class="screenshot-label">🗄️ Схема базы данных</span>
-                    </div>
-                </div>
+
+-- Хранимая процедура
+CREATE PROCEDURE GetUserOrders(IN userId INT)
+BEGIN
+    SELECT * FROM orders WHERE user_id = userId;
+END;</code></pre>
+            </div>
+            <div class="screenshot-full mt-3" style="background-image: url('img/9.png');">
+                <span class="screenshot-label">🗄️ Схема базы данных</span>
             </div>
         </div>
     </div>
+</div>
 
-<!-- 5. PYTHON БАЗОВЫЙ — ПЕРЕДЕЛАННЫЙ БЛОК -->
-<div id="python-basic" class="mb-5 pt-3">
-    <div class="col-12">
-        <div class="d-flex align-items-center gap-2 mb-3">
-            <div class="icon-bg" style="background: #d4f1e8;"><i class="bi bi-filetype-py fs-4"></i></div>
-            <h3 class="fw-bold m-0">Python — базовый уровень</h3>
-            <span class="badge bg-success bg-opacity-10 text-success ms-2 px-3 py-2">основы программирования</span>
-        </div>
-        <div class="line-module" style="border-left-color: #10b981;"></div>
-    </div>
-    
-    <!-- Карточка 1: Переменные, условия, циклы -->
-    <div class="row mb-4">
+    <!-- 5. PYTHON БАЗОВЫЙ -->
+    <div id="python-basic" class="mb-5 pt-3">
         <div class="col-12">
-            <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #fff, #f0fdf4); border-left: 4px solid #10b981;">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <div class="icon-bg" style="background: #10b98120; color: #10b981;">
-                                <i class="bi bi-terminal fs-4"></i>
-                            </div>
-                            <h4 class="fw-bold m-0">Переменные, условия, циклы</h4>
-                            <span class="tech-badge" style="background: #10b98120; color: #10b981;">🐍 основы синтаксиса</span>
-                        </div>
-                        <p class="mb-3">Изучаем базовые конструкции Python: переменные разных типов, ветвления и циклы.</p>
-                        
-                        <div class="mb-3">
-                            <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что входит в модуль:</h6>
+            <div class="module-header">
+                <div class="icon-bg" style="background: #d4f1e8;"><i class="bi bi-filetype-py fs-4"></i></div>
+                <h3 class="fw-bold m-0">Python — базовый уровень</h3>
+            </div>
+            <div class="line-module" style="border-left-color: #10b981;"></div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #fff, #f0fdf4); border-left: 4px solid #10b981;">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h4 class="fw-bold"><i class="bi bi-terminal me-2"></i> Переменные, условия, циклы</h4>
+                            <div class="fw-semibold mb-2 mt-3">📚 Что изучит:</div>
                             <ul class="list-check small">
                                 <li>Числа, строки, списки, словари</li>
                                 <li>Условные операторы if/elif/else</li>
                                 <li>Циклы for и while</li>
-                                <li>Работа с пользовательским вводом input()</li>
-                                <li>Базовые алгоритмы и отладка кода</li>
+                                <li>Работа с пользовательским вводом</li>
                             </ul>
+                            <div class="mt-2">
+                                <span class="result-badge">🎯 Итог: консольный калькулятор</span>
+                            </div>
                         </div>
-                        
-                       
-                    </div>
-                    
-                    <div class="col-lg-6 mt-3 mt-lg-0">
-                        <div class="code-preview" style="position: relative; overflow: hidden;">
-                            <div style="position: absolute; top: 10px; right: 10px; background: #10b981; padding: 2px 10px; border-radius: 20px; font-size: 10px; color: white; font-weight: 600;">🐍 Basic Python</div>
-                            <pre><code class="language-python"># Переменные и типы данных
+                        <div class="col-lg-6 mt-3 mt-lg-0">
+                            <div class="code-preview">
+                                <pre><code class="language-python"># Переменные и условия
 name = "Алиса"
 age = 12
-is_student = True
-height = 1.55
-
-print(f"Привет, меня зовут {name}, мне {age} лет")
-
-# Условный оператор
 if age >= 14:
     print("Продвинутый курс")
 elif age >= 10:
-    print("Базовый курс подходит")
-else:
-    print("Начни с основ")
+    print("Базовый курс")
 
-# Цикл for
+# Циклы
 fruits = ["яблоко", "банан", "апельсин"]
 for fruit in fruits:
-    print(f"Я люблю {fruit}")
+    print(f"Я люблю {fruit}")</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #fff, #eef2ff); border-left: 4px solid #3b82f6;">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h4 class="fw-bold"><i class="bi bi-files me-2"></i> Функции, списки, словари</h4>
+                            <div class="fw-semibold mb-2 mt-3">🚀 Что изучит:</div>
+                            <ul class="list-check small">
+                                <li>Создание и вызов функций (def)</li>
+                                <li>Аргументы и возврат значений</li>
+                                <li>Методы списков и словари</li>
+                                <li>Сохранение данных в JSON</li>
+                            </ul>
+                            <div class="mt-2">
+                                <span class="result-badge">🎯 Итог: TODO-лист в консоли</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mt-3 mt-lg-0">
+                            <div class="code-preview">
+                                <pre><code class="language-python">def calculate_area(width, height):
+    return width * height
 
-# Цикл while
-counter = 0
-while counter < 5:
-    print(f"Счёт: {counter}")
-    counter += 1
+tasks = []
+def add_task(task_name):
+    tasks.append(task_name)
 
-# Генератор чётных чисел
-even_numbers = [x for x in range(10) if x % 2 == 0]
-print(f"Чётные числа: {even_numbers}")</code></pre>
+student = {"name": "Максим", "age": 13}
+print(f"{student['name']} учится")</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-   
-</div>
 
-<!-- 6. PYTHON ПРОДВИНУТЫЙ — СОКРАЩЁННЫЙ КОД (10-16 строк) -->
+  <!-- 6. PYTHON ПРОДВИНУТЫЙ -->
 <div id="python" class="mb-5 pt-3">
     <div class="col-12">
-        <div class="d-flex align-items-center gap-2 mb-3">
+        <div class="module-header">
             <div class="icon-bg" style="background: linear-gradient(135deg, #667eea, #764ba2);"><i class="bi bi-filetype-py fs-4 text-white"></i></div>
             <h3 class="fw-bold m-0">Python продвинутый</h3>
             <span class="badge bg-info bg-opacity-10 text-info ms-2 px-3 py-2">AI + Backend + Боты</span>
@@ -649,7 +778,7 @@ print(f"Чётные числа: {even_numbers}")</code></pre>
     <!-- Карточка 1: Telegram боты с БД -->
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #fff, #f8f9ff); border-left: 4px solid #3b82f6;">
+            <div class="card module-card p-4 border-0 python-advanced-card" style="background: linear-gradient(135deg, #fff, #f8f9ff); border-left: 4px solid #3b82f6;">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="d-flex align-items-center gap-2 mb-3">
@@ -670,7 +799,6 @@ print(f"Чётные числа: {even_numbers}")</code></pre>
                                 <li>Клавиатуры, инлайн-кнопки, FSM</li>
                             </ul>
                         </div>
-                        
                     </div>
                     
                     <div class="col-lg-6 mt-3 mt-lg-0">
@@ -688,11 +816,7 @@ async def start(message: types.Message):
     conn = await asyncpg.connect(user='user', password='pass')
     await conn.execute("INSERT INTO users (tg_id) VALUES ($1)", 
                        message.from_user.id)
-    await message.answer(" Ты сохранён в базе!")
-
-@dp.message()
-async def echo(message: types.Message):
-    await message.answer(f"Ты написал: {message.text}")
+    await message.answer("✅ Ты сохранён в базе!")
 
 async def main():
     await dp.start_polling(bot)
@@ -710,7 +834,7 @@ if __name__ == "__main__":
     <!-- Карточка 2: FastAPI + Базы данных -->
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #fff, #fefce8); border-left: 4px solid #eab308;">
+            <div class="card module-card p-4 border-0 python-advanced-card" style="background: linear-gradient(135deg, #fff, #fefce8); border-left: 4px solid #eab308;">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="d-flex align-items-center gap-2 mb-3">
@@ -731,8 +855,6 @@ if __name__ == "__main__":
                                 <li>Деплой на Railway / Docker</li>
                             </ul>
                         </div>
-                        
-                        
                     </div>
                     
                     <div class="col-lg-6 mt-3 mt-lg-0">
@@ -740,7 +862,6 @@ if __name__ == "__main__":
                             <div style="position: absolute; top: 10px; right: 10px; background: #eab308; padding: 2px 10px; border-radius: 20px; font-size: 10px; color: #422006;">⚡ FastAPI</div>
                             <pre><code class="language-python">from fastapi import FastAPI
 from pydantic import BaseModel
-import asyncpg
 
 app = FastAPI(title="My API")
 
@@ -751,10 +872,6 @@ class Item(BaseModel):
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
-@app.get("/users/{user_id}")
-async def get_user(user_id: int):
-    return {"id": user_id, "name": "User"}
 
 @app.post("/items")
 async def create_item(item: Item):
@@ -771,7 +888,7 @@ async def create_item(item: Item):
     <!-- Карточка 3: Нейронные сети -->
     <div class="row">
         <div class="col-12">
-            <div class="card module-card p-4 border-0" style="background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%); border-left: 4px solid #8b5cf6;">
+            <div class="card module-card p-4 border-0 python-advanced-card" style="background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%); border-left: 4px solid #8b5cf6;">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="d-flex align-items-center gap-2 mb-3">
@@ -792,8 +909,6 @@ async def create_item(item: Item):
                                 <li>Классификация изображений</li>
                             </ul>
                         </div>
-                        
-                        
                     </div>
                     
                     <div class="col-lg-6 mt-3 mt-lg-0">
@@ -815,13 +930,7 @@ with torch.no_grad():
 classifier = pipeline("sentiment-analysis", 
     model="blanchefort/rubert-base-cased-sentiment")
 result = classifier("Я обожаю Python!")
-print(f"Эмоция: {result[0]['label']}")
-
-# Генерация текста (GPT)
-generator = pipeline("text-generation", 
-    model="sberbank-ai/rugpt3small")
-output = generator("Как научиться программировать...")
-print(output[0]['generated_text'])</code></pre>
+print(f"Эмоция: {result[0]['label']}")</code></pre>
                         </div>
                     </div>
                 </div>
@@ -830,79 +939,129 @@ print(output[0]['generated_text'])</code></pre>
     </div>
 </div>
 
-    <!-- 7. ANDROID (KOTLIN) -->
-    <div id="android" class="mb-5 pt-3">
-        <div class="col-12">
-            <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="icon-bg" style="background:#f1e5ff;"><i class="bi bi-phone-landscape fs-4"></i></div>
-                <h3 class="fw-bold m-0">Android-разработка</h3>
-                <span class="badge bg-secondary bg-opacity-10 text-secondary ms-2 px-3 py-2">Kotlin</span>
-            </div>
-            <div class="line-module" style="border-left-color: #a855f7;"></div>
+<!-- 7. ANDROID -->
+<div id="android" class="mb-5 pt-3">
+    <div class="col-12">
+        <div class="module-header">
+            <div class="icon-bg" style="background: linear-gradient(135deg, #a855f7, #7c3aed);"><i class="bi bi-phone-landscape fs-4 text-white"></i></div>
+            <h3 class="fw-bold m-0">Android-разработка</h3>
+            <span class="badge bg-secondary bg-opacity-10 text-secondary ms-2 px-3 py-2">Kotlin</span>
         </div>
-        <div class="android-row">
-            <div class="code-col">
-                <div class="card module-card p-4 h-100">
-                    <h4 class="fw-bold"><i class="bi bi-android2 me-2 text-success"></i> Kotlin — профессиональный подход</h4>
-                    <div class="code-preview">
-                        <pre><code class="language-kotlin">
-class NoteActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityNoteBinding
+        <div class="line-module" style="border-left-color: #a855f7;"></div>
+    </div>
+    
+    <div class="android-row">
+        <div class="code-col">
+            <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fff, #f5f0ff); border-left: 4px solid #a855f7;">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="icon-bg" style="background: #a855f720; color: #a855f7;">
+                        <i class="bi bi-android2 fs-4"></i>
+                    </div>
+                    <h4 class="fw-bold m-0">Kotlin — профессиональный подход</h4>
+                </div>
+                <p class="mb-3">Создаём приложения от калькулятора до трекера привычек. Работа с UI, базами данных, сетью.</p>
+                
+                <div class="mb-3">
+                    <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                    <ul class="list-check small">
+                        <li>Основы Kotlin: переменные, циклы, функции</li>
+                        <li>Android Studio, макеты (XML / Jetpack Compose)</li>
+                        <li>Room Database — сохранение данных на устройстве</li>
+                        <li>RecyclerView — списки и адаптеры</li>
+                        <li>Retrofit — работа с API и JSON</li>
+                        <li>Coroutines — асинхронное программирование</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-2">
+                    <h6 class="fw-semibold"><i class="bi bi-trophy-fill text-warning me-2"></i>Результат:</h6>
+                    <div class="d-flex flex-wrap gap-2 mt-1">
+                        <span class="result-badge" style="background: #a855f7; color: white;">📱 Приложение заметок</span>
+                        <span class="result-badge" style="background: #3b82f6; color: white;">📦 Готовый APK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="screenshot-col">
+            <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(145deg, #2d2f36, #1f2128);">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <i class="bi bi-google-play fs-1 text-white-50"></i>
+                    <h5 class="fw-bold m-0 text-white">Итоговый проект</h5>
+                </div>
+                <p class="small text-white-50">Приложение для планирования задач с авторизацией. Готовый .apk файл.</p>
+                
+                <div class="code-preview mt-2" style="margin-bottom: 0.5rem;">
+                    <pre><code class="language-kotlin">class NoteActivity : AppCompatActivity() {
     private lateinit var viewModel: NoteViewModel
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNoteBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
         val adapter = NoteAdapter()
-        binding.recyclerView.adapter = adapter
-        
         viewModel.allNotes.observe(this) { notes ->
             adapter.submitList(notes)
         }
-        
-        binding.fab.setOnClickListener {
-            val note = Note(text = binding.editText.text.toString())
-            viewModel.insert(note)
-        }
     }
-}
-</code></pre>
-                    </div>
+}</code></pre>
                 </div>
-            </div>
-            <div class="screenshot-col">
-                <div class="card module-card p-4 h-100 bg-dark text-white" style="background: linear-gradient(145deg, #2d2f36, #1f2128);">
-                    <i class="bi bi-google-play fs-1 mb-2"></i>
-                    <h5>Итоговый проект</h5>
-                    <p class="small">Приложение для планирования задач. Готовый .apk файл.</p>
-                    <div class="screenshot-full android-screenshot" style="background-image: url('img/7.png'); background-size: contain; background-color: rgba(0,0,0,0.3); min-height: 380px;">
-                        <span class="screenshot-label">📱 Скриншот приложения</span>
-                    </div>
+                
+                <div class="screenshot-full android-screenshot mt-2" style="background-image: url('img/7.png'); background-size: contain; background-color: rgba(0,0,0,0.3); min-height: 280px;">
+                    <span class="screenshot-label">📱 Скриншот приложения</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 8. UNITY -->
-    <div id="unity" class="mb-5 pt-3">
-        <div class="col-12">
-            <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="icon-bg" style="background:#fee2e2;"><i class="bi bi-controller fs-4"></i></div>
-                <h3 class="fw-bold m-0">Геймдев на Unity</h3>
-                <span class="badge bg-danger bg-opacity-10 text-danger ms-2 px-3 py-2">игровой движок</span>
-            </div>
-            <div class="line-module" style="border-left-color: #ef4444;"></div>
+<!-- 8. UNITY -->
+<div id="unity" class="mb-5 pt-3">
+    <div class="col-12">
+        <div class="module-header">
+            <div class="icon-bg" style="background: linear-gradient(135deg, #ef4444, #dc2626);"><i class="bi bi-controller fs-4 text-white"></i></div>
+            <h3 class="fw-bold m-0">Геймдев на Unity</h3>
+            <span class="badge bg-danger bg-opacity-10 text-danger ms-2 px-3 py-2">игровой движок</span>
         </div>
-        <div class="unity-row">
-            <div class="code-col">
-                <div class="card module-card p-4 h-100">
-                    <h4><i class="bi bi-joystick me-2"></i> C# + Unity 2D/3D</h4>
-                    <div class="code-preview">
-                        <pre><code class="language-csharp">
-using UnityEngine;
+        <div class="line-module" style="border-left-color: #ef4444;"></div>
+    </div>
+    
+    <div class="unity-row">
+        <div class="code-col">
+            <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fff, #fef2f2); border-left: 4px solid #ef4444;">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="icon-bg" style="background: #ef444420; color: #ef4444;">
+                        <i class="bi bi-joystick fs-4"></i>
+                    </div>
+                    <h4 class="fw-bold m-0">C# + Unity 2D/3D</h4>
+                </div>
+                <p class="mb-3">Создаём платформеры, раннеры, аркады и даже простые 3D-игры.</p>
+                
+                <div class="mb-3">
+                    <h6 class="fw-semibold"><i class="bi bi-check-circle-fill text-success me-2"></i>Что изучит:</h6>
+                    <ul class="list-check small">
+                        <li>C#: основы, классы, методы, свойства</li>
+                        <li>Физика, коллизии, триггеры</li>
+                        <li>Создание уровней и префабов</li>
+                        <li>Анимации, аниматор, Blend Tree</li>
+                        <li>UI для игры: меню, счет, здоровье</li>
+                        <li>Сборка под Windows, WebGL</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-2">
+                    <h6 class="fw-semibold"><i class="bi bi-trophy-fill text-warning me-2"></i>Результат:</h6>
+                    <div class="d-flex flex-wrap gap-2 mt-1">
+                        <span class="result-badge" style="background: #ef4444; color: white;">🎮 2D Платформер</span>
+                        <span class="result-badge" style="background: #10b981; color: white;">🏃‍♂️ Бесконечный раннер</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="screenshot-col">
+            <div class="card module-card p-4 h-100 border-0" style="background: linear-gradient(135deg, #fef2f2, #fff); border-left: 4px solid #ef4444;">
+                <div class="code-preview mt-2" style="margin-bottom: 0.5rem;">
+                    <pre><code class="language-csharp">using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -921,33 +1080,17 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
-    
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-            isGrounded = true;
-    }
-}
-</code></pre>
-                    </div>
+}</code></pre>
                 </div>
-            </div>
-            <div class="screenshot-col">
-                <div class="card bg-warning bg-opacity-10 p-4 h-100 text-center">
-                    <i class="bi bi-trophy-fill display-6 text-warning"></i>
-                    <p class="mt-2 fw-semibold">Game Jam внутри курса</p>
-                    <div class="screenshot-full" style="background-image: url('img/8.png'); min-height: 450px;">
-                        <span class="screenshot-label">🎮 Скриншот игры</span>
-                    </div>
+                
+                <div class="screenshot-full mt-2" style="background-image: url('img/8.png'); min-height: 260px;">
+                    <span class="screenshot-label">🎮 Скриншот игрового процесса</span>
                 </div>
             </div>
         </div>
     </div>
-
- 
 </div>
-
-
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -958,17 +1101,18 @@ public class PlayerController : MonoBehaviour
     document.querySelectorAll('.screenshot-full').forEach(el => {
         const bg = getComputedStyle(el).backgroundImage;
         if (bg === 'none' || bg === '' || bg.includes('none')) {
-            if (!el.classList.contains('no-image')) {
-                el.classList.add('no-image');
-                if (!el.querySelector('i')) {
-                    const icon = document.createElement('i');
-                    icon.className = 'bi bi-image';
-                    el.insertBefore(icon, el.firstChild);
-                }
+            el.classList.add('no-image');
+            if (!el.querySelector('i')) {
+                const icon = document.createElement('i');
+                icon.className = 'bi bi-image';
+                icon.style.fontSize = '2rem';
+                icon.style.color = '#94a3b8';
+                el.insertBefore(icon, el.firstChild);
             }
+            const label = el.querySelector('.screenshot-label');
+            if (label) label.style.background = 'rgba(0,0,0,0.5)';
         }
     });
-    
 </script>
 </body>
 </html>
